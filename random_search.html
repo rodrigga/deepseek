@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda Aleatoria</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .search-container {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .result-image {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 20px auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h1>Búsqueda Aleatoria</h1>
+        <img id="resultImage" class="result-image" alt="Resultado Aleatorio">
+        <input type="text" id="searchInput" placeholder="Escribe algo...">
+        <button onclick="generateRandomResult()">Buscar</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function generateRandomResult() {
+            const randomResults = [
+                "Un gato volador",
+                "Pizza en el espacio",
+                "Un unicornio bailando",
+                "Lluvia de hamburguesas",
+                "Un robot poeta",
+                "Un dragón programador",
+                "Un pingüino en la playa",
+                "Un castillo de nubes",
+                "Una bicicleta invisible",
+                "Un perro astronauta",
+                "Un elefante pintor",
+                "Una sirena cantando rock",
+                "Un coche que vuela",
+                "Un árbol que habla",
+                "Un pez que camina",
+                "Un león vegetariano",
+                "Un arcoíris nocturno",
+                "Una estrella fugaz bailarina",
+                "Un búho que cuenta chistes",
+                "Un koala programador"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * randomResults.length);
+            const resultElement = document.getElementById('result');
+
+            resultElement.textContent = randomResults[randomIndex];
+
+            // Generar posición aleatoria
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+
+            resultElement.style.position = 'absolute';
+            resultElement.style.left = `${randomX}px`;
+            resultElement.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
